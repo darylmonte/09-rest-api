@@ -1,15 +1,15 @@
+'use strict';
+
 const auth = require('basic-auth'); //  npm install basic-auth
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
-
-'use strict';
 
 // Middleware to authenticate the request using Basic Authentication.
 exports.authenticateUser = async (req, res, next) => {
   let message; 
   const credentials = auth(req); // user's key and secret
   if (credentials) {
-    const user = await User.findOne({ where: { emailAddress: credentials.name } });
+    const user = await User.findOne({ where: { emailaddress: credentials.name } });
     if (user) {
       const authenticated = bcrypt.compareSync(credentials.pass, user.password);
       if (authenticated) {
@@ -19,7 +19,7 @@ exports.authenticateUser = async (req, res, next) => {
         message = `Authentication failure for username: ${user.emailAddress}`;
       }
     } else {
-      message = `User not found for username: ${credentials.emailAddress}`;
+      message = `User not found for username: ${credentials.name}`;
     }
   } else {
     message = 'Auth header not found';
@@ -31,6 +31,4 @@ exports.authenticateUser = async (req, res, next) => {
   } else {
     next();
   }
-  
-  next();
-}
+};
