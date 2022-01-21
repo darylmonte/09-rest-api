@@ -124,7 +124,7 @@ router.put('/courses/:id', authenticateUser, asyncHandler(async (req, res) => {
           throw error;
           }
       } else {
-          res.status(403).json({
+          res.status(400).json({
               message: 'Unable to update a course that does not exist'
           });
       }
@@ -152,7 +152,7 @@ router.delete('/courses/:id', authenticateUser, asyncHandler(async (req, res) =>
           });
       }
   } else {
-      res.status(403).json({
+      res.status(400).json({
           message: 'Unable to delete a course that does not exist'
       });
   }
