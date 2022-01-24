@@ -4,7 +4,7 @@ My ninth project for the Treehouse Full-Stack Javascript Techdegree. I created a
 ## Getting Started
 In order to use this API you will need to complete these steps from the root folder:
 
-Install Project Dependencies: npm install
-Populate the database by using: npm run seed
-Run the API use: npm start
-Access the API: http://localhost:5000/
+1. Install Project Dependencies: npm install
+2. Populate the database by using: npm run seed
+3. Run the API use: npm start
+4. Access the API: [http://localhost:5000/](http://localhost:5000/)
