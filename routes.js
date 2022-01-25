@@ -147,7 +147,7 @@ router.delete('/courses/:id', authenticateUser, asyncHandler(async (req, res) =>
           course.destroy(course);
           res.status(204).end();
       } else {
-          res.status(401).json({
+          res.status(403).json({
               message: 'Permission denied. Only the course owner may delete this course'
           });
       }
